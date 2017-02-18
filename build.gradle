@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    //testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.0-M3'
+    //testCompile 'org.junit.jupiter:junit-jupiter-migration-support:5.0.0-M3'
+    //testCompile 'org.junit.platform:junit-platform-runner:1.0.0-M3'
+}
