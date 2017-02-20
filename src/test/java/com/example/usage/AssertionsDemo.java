@@ -6,23 +6,21 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.migrationsupport.rules.EnableRuleMigrationSupport;
 import org.junit.rules.ErrorCollector;
 
+@EnableRuleMigrationSupport
 public class AssertionsDemo {
 
     @Test
     public void basicAssertions() {
         assertEquals(2, 1 + 1);
-        assertEquals("1 + 1 = 2", 2, 1 + 1);
+        assertEquals(2, 1 + 1, () -> "1 + 1 = 2" + Integer.parseInt("foo"));
         assertNull(null);
         assertNotNull(this);
         assertSame("foo", "foo");
@@ -34,13 +32,12 @@ public class AssertionsDemo {
         assertThat("some text", allOf(notNullValue(), containsString("x")));
     }
 
-    @Rule
-    public ErrorCollector errorCollector = new ErrorCollector();
-
     @Test
     public void multipleFailures() {
-        errorCollector.checkThat("foo", is(nullValue()));
-        errorCollector.checkThat("foo", is(sameInstance("bar")));
+        assertAll(
+            () -> assertThat("foo", is(nullValue())),
+            () -> assertThat("foo", is(sameInstance("bar")))
+        );
     }
 
 }
