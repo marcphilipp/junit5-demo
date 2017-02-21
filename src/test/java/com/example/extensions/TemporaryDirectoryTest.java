@@ -8,7 +8,10 @@ import java.nio.file.Path;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@ExtendWith(TemporaryDirectoryExtension.class)
 class TemporaryDirectoryTest {
 
     @Test
