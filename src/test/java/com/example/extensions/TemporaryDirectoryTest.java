@@ -8,10 +8,12 @@ import java.nio.file.Path;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 class TemporaryDirectoryTest {
 
     @Test
+    @ExtendWith(TemporaryDirectoryExtension.class)
     void writeAndReadFile(Path tempDir) throws Exception {
         Path testFile = tempDir.resolve("test.txt");
 
