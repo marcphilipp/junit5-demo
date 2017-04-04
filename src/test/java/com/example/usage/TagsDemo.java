@@ -1,15 +1,13 @@
 package com.example.usage;
 
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-
-import com.example.categories.Integration;
-import com.example.categories.Slow;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 public class TagsDemo {
 
     @Test
-    @Category({ Integration.class, Slow.class })
+    @Tag("integration")
+    @Tag("slow")
     public void integrationTest() {
         // test something
     }
