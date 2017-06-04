@@ -1,35 +1,17 @@
 package com.example.usage;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.Base64;
 
-import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(Parameterized.class)
-public class ParameterizedDemo {
+class ParameterizedDemo {
 
-    @Parameters(name = "base64({0}) = {1}")
-    public static Iterable<Object[]> parameters() {
-        return asList(
-                new Object[]{ "foo", "Zm9v" },
-                new Object[]{ "bar", "YmFy" }
-        );
-    }
-
-    @Parameter(0)
-    public String input;
-
-    @Parameter(1)
-    public String base64Output;
-
-    @Test
-    public void encodingAStringReturnsExpectedOutput() {
+    @ParameterizedTest(name = "base64({0}) = {1}")
+    @CsvSource(value = {"foo → Zm9v", "bar → YmFy"}, delimiter = '→')
+    void encodingReturnsExpectedOutput(String input, String base64Output) {
         Base64.Encoder encoder = Base64.getEncoder();
         assertEquals(base64Output, encoder.encodeToString(input.getBytes()));
     }

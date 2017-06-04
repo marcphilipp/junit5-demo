@@ -6,6 +6,6 @@ repositories {
 
 dependencies {
     testCompile 'junit:junit:4.12'
-    //testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.0-M4'
-    //testCompile 'org.junit.jupiter:junit-jupiter-params:5.0.0-M4'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.0-M4'
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.0.0-M4'
 }
