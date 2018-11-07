@@ -3,8 +3,6 @@ package com.example.usage;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.TestFactory;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -33,12 +31,13 @@ public class MathTests {
     }
 
     @TestFactory
-    @Execution(ExecutionMode.SAME_THREAD)
+//    @Execution(ExecutionMode.SAME_THREAD)
     Stream<DynamicTest> evenNumberAreEven() {
         return IntStream.iterate(0, n -> n + 2)
                 .limit(100)
                 .mapToObj(n -> dynamicTest(n + " is even", () -> {
                     assertEquals(0, n % 2);
+                    Thread.sleep(1000);
                 }));
     }
 }
