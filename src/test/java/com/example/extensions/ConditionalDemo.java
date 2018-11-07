@@ -1,11 +1,9 @@
 package com.example.extensions;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled("not yet implemented")
+import static org.junit.jupiter.api.Assertions.fail;
+
 class ConditionalDemo {
 
     @Test
