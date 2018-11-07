@@ -1,19 +1,19 @@
 package com.example.extensions;
 
-import static java.util.Arrays.asList;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import static java.util.Arrays.asList;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
 class TemporaryDirectoryTest {
 
     @Test
-    @Disabled("not yet implemented")
+    @ExtendWith(TemporaryDirectoryExtension.class)
     void writeAndReadFile(Path tempDir) throws Exception {
         Path testFile = tempDir.resolve("test.txt");
 
