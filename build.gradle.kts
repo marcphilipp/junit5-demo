@@ -7,7 +7,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.4.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
 }
 
 tasks.test {
