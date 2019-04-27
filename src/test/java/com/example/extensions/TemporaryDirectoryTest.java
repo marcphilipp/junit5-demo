@@ -9,12 +9,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 class TemporaryDirectoryTest {
 
     @Test
-    @Disabled("not yet implemented")
-    void writeAndReadFile(Path tempDir) throws Exception {
+    void writeAndReadFile(@TempDir Path tempDir) throws Exception {
         Path testFile = tempDir.resolve("test.txt");
 
         Files.write(testFile, asList("foo", "bar"));
