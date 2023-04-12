@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 class ConditionalDemo {
 
     @Test
-    @DisabledOnWeekdays(WEDNESDAY)
+    @DisabledOnWeekday(WEDNESDAY)
     void conditionalTest() {
         fail("fix me");
     }

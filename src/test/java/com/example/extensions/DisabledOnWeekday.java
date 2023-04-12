@@ -8,8 +8,8 @@ import java.time.DayOfWeek;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface DisabledOnWeekdays {
+public @interface DisabledOnWeekday {
 
-    DayOfWeek[] value();
+    DayOfWeek value();
 
 }
